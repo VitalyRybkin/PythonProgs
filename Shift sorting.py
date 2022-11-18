@@ -11,7 +11,7 @@ buffer = 0
 nums = array('i')
 
 #arrSize = int(input("Enter an array size:"))
-arrSize = 1000
+arrSize = 10
 
 
 #for curIndex in range(0, arrSize, 1):

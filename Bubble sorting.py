@@ -2,43 +2,43 @@ import random
 from array import *
 import time
 
-start = time.time()
 
-#arrSize = int(input("Enter an array size:"))
-arrSize = 1000
+def main():
+    start = time.time()
+    nums = array('i')
 
-ind = 0
-nums = array('i')
-prev_arr = array('i')
-buffer = 0
-
-while ind < arrSize:
-    #nums.append(int(input(f"Type number {ind+1}: ")))
-    nums.append(random.randint(1, 100))
-    ind += 1
-
-ind = 0
-
-prev_arr = nums.__copy__()
-
-while arrSize > 1:
+# Creating an array
+    MakeArray(nums)
+    prev_arr = nums.__copy__()
+    print("Old array", end=": ")
+    for i in range(0, len(prev_arr), 1): print(prev_arr[i], end=' ')
+# Sorting an array
+    Sorting(nums)
+    print("\nNew array", end=": ")
+    for i in range(0, len(nums), 1): print(nums[i], end=' ')
+# Program execution time
+    end = time.time()
+    print(f"\n\nExecution program time is: {end - start:.6f}")
 
 
-    for ind in range(len(nums)-1):
-        if nums[ind] > nums[ind + 1]:
-            buffer = nums[ind]
-            nums[ind] = nums[ind + 1]
-            nums[ind + 1] = buffer
-
-    print(ind, arrSize)
-    print(nums)
-
-    ind += 1
-    arrSize -= 1
+def MakeArray(nums):
+    # arrSize = int(input("Enter an array size:"))
+    arr_size = 10
+    ind = 0
+    while ind < arr_size:
+        # nums.append(int(input(f"Type number {ind+1}: ")))
+        nums.append(random.randint(1, 100))
+        ind += 1
 
 
-print("You've entered:", prev_arr, "\nWe've sorted:", nums)
+def Sorting(nums):
+    ind = 0
+    arr_size = len(nums)
+    while arr_size > 1:
+        for ind in range(len(nums)-1):
+            if nums[ind] > nums[ind + 1]: nums[ind], nums[ind + 1] = nums[ind + 1], nums[ind]
+        ind += 1
+        arr_size -= 1
 
-end = time.time()
 
-print("Execution time of the program is- ", end-start)
+main()
